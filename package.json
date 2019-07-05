@@ -1,0 +1,14 @@
+{
+  "name": "kimbook",
+  "version": "1.0.0",
+  "description": "Kimbook is about borrowing",
+  "main": "server.js",
+  "scripts": {
+    "start": "lite-server"
+  },
+  "author": "Wuletaw Wonte",
+  "license": "ISC",
+  "devDependencies": {
+    "lite-server": "^2.5.3"
+  }
+}
