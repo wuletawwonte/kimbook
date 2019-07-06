@@ -8,10 +8,10 @@
   <title>ቂምBook</title>
 
   <link rel="stylesheet" href="./lib/onsenui/css/onsenui.min.css">
-  <link rel="stylesheet" href="./lib/onsenui/css/onsen-css-components.min.css">
+  <link rel="stylesheet" href="./lib/onsenui/css/old-onsen-css-components.min.css">
   <link rel="stylesheet" href="./css/style.css">
 
-  <!-- <script src="cordova.js"></script> -->
+
   <script src="./lib/angular/angular.min.js"></script>
   <script src="./lib/onsenui/js/onsenui.min.js"></script>
   <!-- <script src="./lib/onsenui/js/angular-onsenui.min.js"></script> -->
@@ -20,10 +20,21 @@
 
   <script src="./js/script.js"></script>
 
+  <script src="./js/ng-cordova.min.js"></script>
+  <script src="cordova.js"></script>
+
+
   <script src="app.js"></script>
 
+  <script type="text/javascript">
+	document.addEventListener("deviceready", function() {
+    var domElement = document.getElementById("#bodyTag");
+    angular.bootstrap(domElement, ["kimBook"]);
+	}, false);
+  </script>
+
 </head>
-<body ng-app="kimBook">
+<body id="bodyTag">
 
 <ons-splitter>
   <ons-splitter-side id="menu" side="left" width="220px" collapse swipeable>
@@ -140,7 +151,17 @@
 		  </li>
 		</ul>
 
-		<ons-fab position="bottom right" ripple>
+		<ul class="list list--material" ng-show="loans">
+		  <li class="list-item list-item--material list-item--tappable" ng-repeat="loan in loans">
+		    <div class="list-item__center list-item--material__center">
+		      <div class="list-item__title list-item--material__title">{{loan.name}}</div>
+		      <div class="list-item__subtitle list-item--material__subtitle">{{loan.content}}</div>
+		    </div>
+		  </li>
+			
+		</ul>
+
+		<ons-fab position="bottom right" ripple ng-click="add()">
 		  <ons-icon
 		    icon="md-plus">
 		  </ons-icon>
