@@ -12,9 +12,9 @@
   <link rel="stylesheet" href="./css/style.css">
 
   <!-- <script src="cordova.js"></script> -->
-  <!-- <script src="./lib/angular/angular.min.js"></script> -->
+  <script src="./lib/angular/angular.min.js"></script>
   <script src="./lib/onsenui/js/onsenui.min.js"></script>
-  <script src="./lib/onsenui/js/angular-onsenui.min.js"></script>
+  <!-- <script src="./lib/onsenui/js/angular-onsenui.min.js"></script> -->
   <script src="./lib/angular/angular-route.min.js"></script>
   <script src="./lib/angular/angular-sqlite.js"></script>
 
@@ -27,16 +27,40 @@
 
 <ons-splitter>
   <ons-splitter-side id="menu" side="left" width="220px" collapse swipeable>
-    <ons-page >
+    <ons-page>
       <ons-list >
         <ons-list-item onclick="fn.load('home.html')" tappable>
-          Home
+	      <div class="left">
+	        <ons-icon icon="md-home" class="list-item__icon"></ons-icon>
+	      </div>
+	      <div class="center">
+	        Home
+	      </div>
         </ons-list-item>
         <ons-list-item onclick="fn.load('settings.html')" tappable>
-          Settings
+	      <div class="left">
+	        <ons-icon icon="md-settings" class="list-item__icon"></ons-icon>
+	      </div>
+	      <div class="center">
+	        Settings
+	      </div>
         </ons-list-item>
         <ons-list-item onclick="fn.load('about.html')" tappable>
-          About
+	      <div class="left">
+	        <ons-icon icon="md-account" class="list-item__icon"></ons-icon>
+	      </div>
+	      <div class="center">
+	        Account
+	      </div>
+        </ons-list-item>
+
+	    <ons-list-header>App Info</ons-list-header>
+
+        <ons-list-item onclick="fn.load('about.html')" tappable>
+          About ቂምBook
+        </ons-list-item>
+        <ons-list-item onclick="fn.load('about.html')" tappable>
+          About Gracesoft
         </ons-list-item>
       </ons-list>
     </ons-page>
@@ -44,7 +68,7 @@
   <ons-splitter-content id="content" page="home.html"></ons-splitter-content>
 </ons-splitter>
 
-<ons-template id="home.html">
+<ons-template id="home.html" controller="homeCtrl">
 	<ons-page>	
 		<ons-toolbar>
 	      <div class="left">
