@@ -12,7 +12,7 @@ app.run(function($cordovaSQLite) {
 app.controller('homeCtrl', function($scope, $cordovaSQLite) {
 	var get_loans = function() {
 		var query = "SELECT name, content FROM loans";
-		$cordovaSQLite.execute(db, query).then(function(result){
+		$cordovaSQLite.execute(db, query, []).then(function(result){
 			if(result.rows.length > 0) {
 
 			$scope.loans = result.rows;
