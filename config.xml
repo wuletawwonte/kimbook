@@ -5,9 +5,7 @@
     versionCode = "10"
     version     = "1.0.0" >
 
-<!-- versionCode is optional and Android only -->
-
-  <name>KimBook</name>
+  <name>ቂምBook</name>
 
   <description>
       Record Loan Information 
@@ -28,7 +26,7 @@
         <preference name="SplashScreenDelay"          value="3000" />
         <preference name="SplashMaintainAspectRatio"  value="true" />
         <preference name="FadeSplashScreen"           value="false"/>
-        <preference name="ShowSplashScreenSpinner"    value="false" />
+        <preference name="ShowSplashScreenSpinner"    value="true" />
   </plugin>  
 
   <icon density="ldpi" platform="android" src="./res/icon/android/ldpi.png"/>
@@ -47,14 +45,6 @@
   <!-- Added the following intents to support the removal of whitelist code from base cordova to a plugin -->
   <!-- Whitelist configuration. Refer to https://cordova.apache.org/docs/en/edge/guide_appdev_whitelist_index.md.html -->
   <plugin name="cordova-plugin-whitelist" version="1" />
-  <allow-intent href="http://*/*" />
-  <content src="index.html" />
   <access origin="*" />
-  <allow-intent href="http://*/*" />
-  <allow-intent href="https://*/*" />
-  <allow-intent href="tel:*" />
-  <allow-intent href="sms:*" />
-  <allow-intent href="mailto:*" />
-  <allow-intent href="geo:*" />
 
 </widget>
