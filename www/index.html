@@ -45,21 +45,83 @@
 </ons-splitter>
 
 <ons-template id="home.html">
-  <ons-page>
-    <ons-toolbar>
-      <div class="left">
-        <ons-toolbar-button onclick="fn.open()">
-          <ons-icon icon="md-menu"></ons-icon>
-        </ons-toolbar-button>
-      </div>
-      <div class="center">
-        Main
-      </div>
-    </ons-toolbar>
-    <p style="text-align: center; opacity: 0.6; padding-top: 20px;">
-      Swipe right to open the menu!
-    </p>
-  </ons-page>
+	<ons-page>	
+		<ons-toolbar>
+	      <div class="left">
+	        <ons-toolbar-button onclick="fn.open()">
+	          <ons-icon icon="md-menu"></ons-icon>
+	        </ons-toolbar-button>
+	      </div>
+		  <div class="center" style="width: 100%;">
+		    <ons-if platform="android">ቂምBook</ons-if>
+		  </div>
+		  <ons-if class="right" platform="android">
+		    <ons-toolbar-button ng-click="androidSearchModal.show(); ">
+		      <ons-icon icon="md-search"></ons-icon>
+		    </ons-toolbar-button>
+		   </ons-if>
+		</ons-toolbar>
+
+
+		<ons-modal animation="fade" animation-options="{ duration: 0.15 }" var="androidSearchModal" class="android-search-modal" ng-click="androidSearchModal.hide();">
+		  <ons-page ons-show="focusInput('android')">
+		    <ons-toolbar class="android-search-bar">
+		      <div class="left">
+		        <ons-toolbar-button>
+		          <ons-icon style="color: black" icon="md-arrow-left"></ons-icon>
+		        </ons-toolbar-button>
+		      </div>
+		      <label class="center" ng-click="$event.stopPropagation()">
+		        <form ng-submit="search(true); androidSearchModal.hide();">
+		          <ons-input type="search" modifier="transparent" input-id="android-search-input" placeholder="Search KimBook Record" ng-model="query" style="color: white;"></ons-input>
+		        </form>
+		      </label>
+		    </ons-toolbar>
+		    <div class="content"></div>
+		    <div class="background" style="background-color: transparent"></div>
+		  </ons-page>
+		</ons-modal>
+
+
+
+		<ons-pull-hook id="pull-hook">
+		   Pull to refresh
+		</ons-pull-hook>
+
+
+		<ul class="list list--material">
+		  <li class="list-item list-item--material list-item--tappable">
+		    <div class="list-item__center list-item--material__center">
+		      <div class="list-item__title list-item--material__title">Orange</div>
+		      <div class="list-item__subtitle list-item--material__subtitle">Sweet fruit that grows on trees.</div>
+		    </div>
+		  </li>
+		  <li class="list-item list-item--material list-item--tappable">
+		    <div class="list-item__center list-item--material__center">
+		      <div class="list-item__title list-item--material__title">Pear</div>
+		      <div class="list-item__subtitle list-item--material__subtitle">Funny-shaped fruit.</div>
+		    </div>
+		  </li>
+		  <li class="list-item list-item--material list-item--tappable">
+		    <div class="list-item__center list-item--material__center">
+		      <div class="list-item__title list-item--material__title">Teal</div>
+		      <div class="list-item__subtitle list-item--material__subtitle">Something great fruit.</div>
+		    </div>
+		  </li>
+		  <li class="list-item list-item--material list-item--tappable">
+		    <div class="list-item__center list-item--material__center">
+		      <div class="list-item__title list-item--material__title">Apple</div>
+		      <div class="list-item__subtitle list-item--material__subtitle">From Chencha area and delicious.</div>
+		    </div>
+		  </li>
+		</ul>
+
+		<ons-fab position="bottom right" ripple>
+		  <ons-icon
+		    icon="md-plus">
+		  </ons-icon>
+		</ons-fab>
+	</ons-page>
 </ons-template>
 
 <ons-template id="settings.html">
